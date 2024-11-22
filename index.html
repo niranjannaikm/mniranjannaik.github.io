@@ -7,40 +7,59 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
             background-color: #f9f9f9;
             color: #333;
+            display: flex;
         }
-        h1 {
-            color: #007BFF;
-            animation: fadeIn 1.5s ease-in-out;
+        /* Left sidebar styling */
+        #sidebar {
+            width: 250px;
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
         }
-        section {
+        #sidebar img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        #sidebar h2, #sidebar p {
+            margin-top: 20px;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 40px;
+        }
+        #sidebar ul li {
             margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s forwards;
         }
-        section:nth-child(1) {
-            animation-delay: 0.5s;
-        }
-        section:nth-child(2) {
-            animation-delay: 1s;
-        }
-        section:nth-child(3) {
-            animation-delay: 1.5s;
-        }
-        section:nth-child(4) {
-            animation-delay: 2s;
-        }
-        a {
-            color: #007BFF;
+        #sidebar ul li a {
+            color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-size: 18px;
         }
-        a:hover {
+        #sidebar ul li a:hover {
             text-decoration: underline;
-            color: #0056b3;
+        }
+
+        /* Main content area */
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+        #content h1 {
+            color: #007BFF;
+        }
+        #content section {
+            margin-bottom: 20px;
+            display: none;
+        }
+        #content section.active {
+            display: block;
         }
 
         /* Smooth scrolling animation */
@@ -70,42 +89,78 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to Niranjan's Website</h1>
-    <p>This site is all about my research on forest fires and climate change in India.</p>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi! I'm Niranjan, a researcher studying forest fire data and climate change in India. I enjoy analyzing environmental patterns and their impact on ecosystems.</p>
-    </section>
-
-    <section id="research">
-        <h2>My Research</h2>
-        <p>Currently, I'm focused on understanding the link between climate variability and forest fires using data from the Forest Survey of India.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to reach out via <a href="mailto:m.niranjannaik@iitgn.ac.in">email</a>.</p>
-    </section>
-
-    <section id="social">
-        <h2>Find Me Online</h2>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <img src="profile.jpg" alt="Niranjan's Profile Picture"> <!-- Add your profile image path -->
+        <h2>M Niranjannaik</h2>
+        <p>Researcher | IIT Gandhinagar</p>
+        <p>Email: <a href="mailto:m.niranjannaik@iitgn.ac.in">m.niranjannaik@iitgn.ac.in</a></p>
         <ul>
-            <li><a href="https://niranjannaikm.github.io/mniranjannaik.github.io/">GitHub Pages</a></li>
-            <li><a href="https://www.linkedin.com/in/m-niranjan-naik-503b591b0/">LinkedIn</a></li>
+            <li><a href="javascript:void(0);" onclick="showContent('about')">About Me and Updates</a></li>
+            <li><a href="javascript:void(0);" onclick="showContent('experience')">Experience</a></li>
+            <li><a href="javascript:void(0);" onclick="showContent('education')">Education</a></li>
+            <li><a href="javascript:void(0);" onclick="showContent('publications')">Publications</a></li>
+            <li><a href="javascript:void(0);" onclick="showContent('awards')">Awards and Achievements</a></li>
+            <li><a href="javascript:void(0);" onclick="showContent('gallery')">Gallery</a></li>
         </ul>
-    </section>
+    </div>
+
+    <!-- Main content -->
+    <div id="content">
+        <h1>Welcome to Niranjan's Website</h1>
+        <p>This site is all about my research on forest fires and climate change in India.</p>
+
+        <!-- Content sections -->
+        <section id="about" class="active">
+            <h2>About Me and Updates</h2>
+            <p>I mainly use an interdisciplinary approach to solve research snags. My current research interest includes coupling machine learning algorithms with satellite imagery to exploit satellite observations (soil moisture, surface roughness, river discharge, and groundwater level). I am also interested in developing novel algorithms in the field of evolutionary computation (e.g., ECS-NL, SHS) and machine learning (e.g., PCA-MM-SVR, LT-FS-ID, AutoML-GWL, F-TLBO-ID).</p>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <p>
+                a) September 2024 - Present: Research Fellow, Faculty of Engineering and Physical Science, School of Mathematics, Department of Applied Mathematics, University of Leeds, Leeds, United Kingdom.<br>
+                b) August 2023 - May 2024: Senior Research Fellow, Department of EES, Indian Institute of Science Education and Research, Bhopal.
+            </p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <p>
+                PhD in Environmental Science, IIT Gandhinagar, India (Expected 2026).<br>
+                Master's in Applied Mathematics, XYZ University (2023).<br>
+                Bachelor's in Physics, ABC College (2021).
+            </p>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <p>List of publications and research papers will go here.</p>
+        </section>
+
+        <section id="awards">
+            <h2>Awards and Achievements</h2>
+            <p>Details about awards and achievements will go here.</p>
+        </section>
+
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>Images and media related to my research and events will go here.</p>
+        </section>
+    </div>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Function to switch between content sections
+        function showContent(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('#content section');
+            sections.forEach(section => {
+                section.classList.remove('active');
             });
-        });
+            // Show the selected section
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+        }
     </script>
 </body>
 </html>
