@@ -20,11 +20,15 @@
             padding: 20px;
             height: 100vh;
             position: fixed;
+            overflow-y: auto; /* Enable scrolling for long content */
         }
         #sidebar img {
-            width: 70%; /* Reduced the image size to 70% */
+            width: 50%; /* Reduced the image size to 50% */
             border-radius: 50%;
             margin-bottom: 20px; /* Added spacing below the image */
+            display: block;
+            margin-left: auto;
+            margin-right: auto; /* Center the image */
         }
         #sidebar h2, #sidebar p {
             margin-top: 20px;
@@ -48,9 +52,9 @@
 
         /* Main content area */
         #content {
-            margin-left: 320px; /* Adjusted margin-left by 20px for extra space */
+            margin-left: 320px; /* Adjusted margin-left for sidebar width */
             padding: 20px;
-            width: calc(100% - 340px); /* Reduced width by 20px */
+            width: calc(100% - 340px); /* Adjusted for sidebar width */
         }
         #content h1 {
             color: #007BFF;
