@@ -13,16 +13,59 @@
         }
         h1 {
             color: #007BFF;
+            animation: fadeIn 1.5s ease-in-out;
         }
         section {
             margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+        section:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+        section:nth-child(2) {
+            animation-delay: 1s;
+        }
+        section:nth-child(3) {
+            animation-delay: 1.5s;
+        }
+        section:nth-child(4) {
+            animation-delay: 2s;
         }
         a {
             color: #007BFF;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
         a:hover {
             text-decoration: underline;
+            color: #0056b3;
+        }
+
+        /* Smooth scrolling animation */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -30,29 +73,39 @@
     <h1>Welcome to Niranjan's Website</h1>
     <p>This site is all about my research on forest fires and climate change in India.</p>
 
-    <section>
+    <section id="about">
         <h2>About Me</h2>
         <p>Hi! I'm Niranjan, a researcher studying forest fire data and climate change in India. I enjoy analyzing environmental patterns and their impact on ecosystems.</p>
     </section>
 
-    <section>
+    <section id="research">
         <h2>My Research</h2>
         <p>Currently, I'm focused on understanding the link between climate variability and forest fires using data from the Forest Survey of India.</p>
     </section>
 
-    <section>
+    <section id="contact">
         <h2>Contact</h2>
         <p>Feel free to reach out via <a href="mailto:m.niranjannaik@iitgn.ac.in">email</a>.</p>
     </section>
 
-    <section>
+    <section id="social">
         <h2>Find Me Online</h2>
         <ul>
-            <!-- Updated the link to point to your GitHub Pages site -->
             <li><a href="https://niranjannaikm.github.io/mniranjannaik.github.io/">GitHub Pages</a></li>
             <li><a href="https://www.linkedin.com/in/m-niranjan-naik-503b591b0/">LinkedIn</a></li>
         </ul>
     </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
