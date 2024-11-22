@@ -23,6 +23,8 @@
             overflow-y: auto; /* Allow scrolling for long content */
             display: flex;
             flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
         }
         #sidebar img {
             width: 150%; /* Increased the image size by 150% */
@@ -32,6 +34,7 @@
         }
         #sidebar h2, #sidebar p {
             margin-top: 20px;
+            text-align: center; /* Ensure text is centered */
         }
         #sidebar ul {
             list-style: none;
@@ -39,6 +42,7 @@
             margin-top: 40px;
             flex-grow: 1; /* Allow the list to expand and push the footer down */
             overflow-y: auto; /* Ensure scrollable content */
+            width: 100%;
         }
         #sidebar ul li {
             margin-bottom: 20px;
