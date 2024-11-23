@@ -16,7 +16,7 @@
         /* Left sidebar styling with gradient background from light blue to gray */
         #sidebar {
             width: 358px; /* Sidebar width */
-            background: linear-gradient(to bottom, #ADD8E6, #808080); /* Gradient from light blue at the top to gray at the bottom */
+            background: linear-gradient(to bottom, #ADD8E6, #808080); /* Gradient from light blue to gray */
             color: white;
             height: 100vh;
             position: fixed;
@@ -49,12 +49,10 @@
             padding: 0;
             margin-top: 20px;
             width: 100%;
-            align-items: flex-start; /* Align menu items to the left */
         }
 
         #sidebar-content ul li {
             margin-bottom: 20px;
-            text-align: left; /* Align menu items text to the left */
         }
 
         #sidebar-content ul li a {
@@ -63,7 +61,6 @@
             font-size: 18px;
             padding: 5px 10px;
             display: block;
-            text-align: left; /* Align the text inside menu items to the left */
             border-radius: 5px;
         }
 
@@ -82,8 +79,8 @@
             width: calc(100% - 371px);
             overflow-y: auto;
             background-image: url('River2.jpg'); /* Path to your image */
-            background-size: 100% auto; /* Fit the image to full width without stretching the height */
-            background-position: top center; /* Position the image at the top */
+            background-size: cover; /* Ensure the image fully covers the area */
+            background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Prevent image repetition */
             padding-top: 40px; /* Add extra space at the top */
         }
@@ -140,10 +137,7 @@
     <!-- Main content -->
     <div id="content">
         <!-- Text without shaded box -->
-        <p id="intro-paragraph">I mainly use an interdisciplinary approach to solve research snags. My current research interest includes coupling machine learning algorithms with satellite imagery to exploit satellite observations (soil moisture, surface roughness, river discharge, and groundwater level). I am also interested in developing novel algorithms in the field of evolutionary computation (e.g., ECS-NL, SHS) and machine learning (e.g., PCA-MM-SVR, LT-FS-ID, AutoML-GWL, F-TLBO-ID).
-
-I mainly use an interdisciplinary approach to solve research snags.
-</p>
+        <p id="intro-paragraph">I mainly use an interdisciplinary approach to solve research snags. My current research interest includes coupling machine learning algorithms with satellite imagery to exploit satellite observations (soil moisture, surface roughness, river discharge, and groundwater level). I am also interested in developing novel algorithms in the field of evolutionary computation (e.g., ECS-NL, SHS) and machine learning (e.g., PCA-MM-SVR, LT-FS-ID, AutoML-GWL, F-TLBO-ID).</p>
 
         <!-- Display all details -->
         <section id="about">
