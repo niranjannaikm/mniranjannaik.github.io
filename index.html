@@ -33,7 +33,7 @@
 
         /* Profile image */
         #sidebar-content img {
-            width: 150px; /* Adjusted image size */
+            width: 150px;
             height: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
@@ -61,12 +61,10 @@
             color: white;
             text-decoration: none;
             font-size: 18px;
-            transition: color 0.3s;
         }
 
-        #sidebar-content ul li a.active {
-            color: yellow; /* Highlight the active option */
-            font-weight: bold;
+        #sidebar-content ul li a:hover {
+            text-decoration: underline;
         }
 
         /* Main content area */
@@ -74,6 +72,7 @@
             margin-left: 270px; /* Adjusted margin-left for sidebar width */
             padding: 20px;
             width: calc(100% - 270px); /* Adjusted for sidebar width */
+            overflow-y: auto;
         }
 
         #content h1 {
@@ -81,9 +80,11 @@
         }
 
         #content section {
-            margin-bottom: 60px;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
+            margin-bottom: 40px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 5px;
         }
 
         #content section h2 {
@@ -101,12 +102,12 @@
             <p>Researcher | IIT Gandhinagar</p>
             <p>Email: <a href="mailto:m.niranjannaik@iitgn.ac.in" style="color: white;">m.niranjannaik@iitgn.ac.in</a></p>
             <ul>
-                <li><a href="#about" class="sidebar-link">About Me and Updates</a></li>
-                <li><a href="#experience" class="sidebar-link">Experience</a></li>
-                <li><a href="#education" class="sidebar-link">Education</a></li>
-                <li><a href="#publications" class="sidebar-link">Publications</a></li>
-                <li><a href="#awards" class="sidebar-link">Awards and Achievements</a></li>
-                <li><a href="#gallery" class="sidebar-link">Gallery</a></li>
+                <li><a href="#about">About Me and Updates</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#awards">Awards and Achievements</a></li>
+                <li><a href="#gallery">Gallery</a></li>
             </ul>
         </div>
     </div>
@@ -116,7 +117,7 @@
         <h1>Welcome to Niranjan's Website</h1>
         <p>This site is all about my research on forest fires and climate change in India.</p>
 
-        <!-- Content sections -->
+        <!-- Display all details at once -->
         <section id="about">
             <h2>About Me and Updates</h2>
             <p>I mainly use an interdisciplinary approach to solve research snags. My current research interest includes coupling machine learning algorithms with satellite imagery to exploit satellite observations (soil moisture, surface roughness, river discharge, and groundwater level). I am also interested in developing novel algorithms in the field of evolutionary computation (e.g., ECS-NL, SHS) and machine learning (e.g., PCA-MM-SVR, LT-FS-ID, AutoML-GWL, F-TLBO-ID).</p>
@@ -154,28 +155,5 @@
             <p>Images and media related to my research and events will go here.</p>
         </section>
     </div>
-
-    <script>
-        // Add scroll detection using Intersection Observer
-        const sections = document.querySelectorAll('section');
-        const sidebarLinks = document.querySelectorAll('.sidebar-link');
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Remove active class from all links
-                    sidebarLinks.forEach(link => link.classList.remove('active'));
-
-                    // Highlight the link matching the current section
-                    const activeLink = document.querySelector(`a[href="#${entry.target.id}"]`);
-                    activeLink.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.5 // Adjust as needed (50% visibility)
-        });
-
-        sections.forEach(section => observer.observe(section));
-    </script>
 </body>
 </html>
