@@ -81,37 +81,13 @@
             padding: 20px;
             width: calc(100% - 371px);
             overflow-y: auto;
-        }
-
-        /* Image section at the top */
-        .image-container {
-            position: relative;
             background-image: url('River2.jpg'); /* Path to your image */
             background-size: 100% auto; /* Fit the image to full width without stretching the height */
             background-position: top center; /* Position the image at the top */
             background-repeat: no-repeat; /* Prevent image repetition */
-            height: 400px; /* Set a fixed height for the image */
         }
 
-        /* Centered text on top of the image */
-        .image-container .welcome-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-
-        /* Content below the image */
-        .content-below-image {
-            margin-top: 20px;
-        }
-
-        #content h1, #content section h2 {
+        #content h1 {
             color: #007BFF;
         }
 
@@ -123,6 +99,7 @@
 
         #content section h2 {
             margin-bottom: 10px;
+            color: #333;
         }
 
         /* Grey line at the bottom of each section */
@@ -156,29 +133,71 @@
 
     <!-- Main content -->
     <div id="content">
-        <!-- Image container with centered welcome text -->
-        <div class="image-container">
-            <div class="welcome-text">
-                <h1>Welcome to Niranjan's Website</h1>
-                <p>This site is all about my research on forest fires and climate change in India.</p>
-            </div>
-        </div>
+        <!-- Text without shaded box -->
+        <h1>Welcome to Niranjan's Website</h1>
+        <p>This site is all about my research on forest fires and climate change in India.</p>
 
-        <!-- Content below the image -->
-        <div class="content-below-image">
-            <section id="about">
-                <h2>About Me and Updates</h2>
-                <p>I mainly use an interdisciplinary approach to solve research snags. My current research interest includes coupling machine learning algorithms with satellite imagery to exploit satellite observations (soil moisture, surface roughness, river discharge, and groundwater level). I am also interested in developing novel algorithms in the field of evolutionary computation (e.g., ECS-NL, SHS) and machine learning (e.g., PCA-MM-SVR, LT-FS-ID, AutoML-GWL, F-TLBO-ID).</p>
-            </section>
+        <!-- Display all details -->
+        <section id="about">
+            <h2>About Me and Updates</h2>
+            <p>I mainly use an interdisciplinary approach to solve research snags. My current research interest includes coupling machine learning algorithms with satellite imagery to exploit satellite observations (soil moisture, surface roughness, river discharge, and groundwater level). I am also interested in developing novel algorithms in the field of evolutionary computation (e.g., ECS-NL, SHS) and machine learning (e.g., PCA-MM-SVR, LT-FS-ID, AutoML-GWL, F-TLBO-ID).</p>
+        </section>
 
-            <section id="experience">
-                <h2>Work Experience</h2>
-                <p>
-                    a) September 2024 - Present: Research Fellow, Faculty of Engineering and Physical Science, School of Mathematics, Department of Applied Mathematics, University of Leeds, Leeds, United Kingdom.<br>
-                    b) August 2023 - May 2024: Senior Research Fellow, Department of EES, Indian Institute of Science Education and Research, Bhopal.
-                </p>
-            </section>
-        </div>
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <p>
+                a) September 2024 - Present: Research Fellow, Faculty of Engineering and Physical Science, School of Mathematics, Department of Applied Mathematics, University of Leeds, Leeds, United Kingdom.<br>
+                b) August 2023 - May 2024: Senior Research Fellow, Department of EES, Indian Institute of Science Education and Research, Bhopal.
+            </p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <p>
+                PhD in Environmental Science, IIT Gandhinagar, India (Expected 2026).<br>
+                Master's in Applied Mathematics, XYZ University (2023).<br>
+                Bachelor's in Physics, ABC College (2021).
+            </p>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <p>List of publications and research papers will go here.</p>
+        </section>
+
+        <section id="awards">
+            <h2>Awards and Achievements</h2>
+            <p>Details about awards and achievements will go here.</p>
+        </section>
+
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>Images and media related to my research and events will go here.</p>
+        </section>
     </div>
+
+    <script>
+        // Function to highlight menu item based on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('#content section');
+            const menuItems = document.querySelectorAll('#sidebar-content ul li a');
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 70; // Offset for better accuracy
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').substring(1) === currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
