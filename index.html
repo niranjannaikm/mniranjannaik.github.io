@@ -83,6 +83,27 @@
             overflow-y: auto;
         }
 
+        /* Add background image to the section */
+        #welcome-section {
+            background-image: url('River2.jpg'); /* Path to your image */
+            background-size: cover;
+            background-position: center;
+            height: 400px; /* Adjust height as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; /* White text on top of the image */
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        #welcome-section .overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text visibility */
+            width: 100%;
+            padding: 20px;
+        }
+
         #content h1 {
             color: #007BFF;
         }
@@ -129,8 +150,13 @@
 
     <!-- Main content -->
     <div id="content">
-        <h1>Welcome to Niranjan's Website</h1>
-        <p>This site is all about my research on forest fires and climate change in India.</p>
+        <!-- Welcome section with background image -->
+        <section id="welcome-section">
+            <div class="overlay">
+                <h1>Welcome to Niranjan's Website</h1>
+                <p>This site is all about my research on forest fires and climate change in India.</p>
+            </div>
+        </section>
 
         <!-- Display all details -->
         <section id="about">
