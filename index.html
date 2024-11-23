@@ -59,12 +59,16 @@
             font-size: 18px;
             padding: 5px 10px;
             display: block;
-            border-radius: 5px;
             text-align: center;
+            border-radius: 5px;
         }
 
+        /* Highlight style for active menu item */
         #sidebar-content ul li a.active {
-            background-color: #0056b3;
+            background-color: #FFD700; /* Different color for the rectangular highlight (gold) */
+            color: #333; /* Change text color for contrast */
+            border: 2px solid #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Glow effect */
         }
 
         /* Main content area */
@@ -164,8 +168,9 @@
 
             let currentSection = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 50; // Add some offset for better accuracy
-                if (window.scrollY >= sectionTop) {
+                const sectionTop = section.offsetTop - 70; // Offset for better accuracy
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                     currentSection = section.getAttribute('id');
                 }
             });
