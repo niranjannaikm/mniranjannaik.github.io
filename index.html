@@ -20,10 +20,9 @@
             color: white;
             height: 100vh;
             position: fixed;
-            overflow-y: auto; /* Enable scrolling for the entire sidebar */
+            overflow-y: auto;
         }
 
-        /* Wrapper for the sidebar content */
         #sidebar-content {
             display: flex;
             flex-direction: column;
@@ -31,7 +30,6 @@
             padding: 20px;
         }
 
-        /* Profile image */
         #sidebar-content img {
             width: 150px;
             height: 150px;
@@ -39,13 +37,11 @@
             margin-bottom: 20px;
         }
 
-        /* Profile text */
         #sidebar-content h2, #sidebar-content p {
             margin: 10px 0;
             text-align: center;
         }
 
-        /* Options list styling */
         #sidebar-content ul {
             list-style: none;
             padding: 0;
@@ -61,17 +57,21 @@
             color: white;
             text-decoration: none;
             font-size: 18px;
+            padding: 5px 10px;
+            display: block;
+            border-radius: 5px;
+            text-align: center;
         }
 
-        #sidebar-content ul li a:hover {
-            text-decoration: underline;
+        #sidebar-content ul li a.active {
+            background-color: #0056b3;
         }
 
         /* Main content area */
         #content {
-            margin-left: 270px; /* Adjusted margin-left for sidebar width */
+            margin-left: 270px;
             padding: 20px;
-            width: calc(100% - 270px); /* Adjusted for sidebar width */
+            width: calc(100% - 270px);
             overflow-y: auto;
         }
 
@@ -81,7 +81,7 @@
 
         #content section {
             margin-bottom: 40px;
-            padding: 10px;
+            padding: 20px;
             border: 1px solid #ddd;
             background-color: #fff;
             border-radius: 5px;
@@ -102,12 +102,12 @@
             <p>Researcher | IIT Gandhinagar</p>
             <p>Email: <a href="mailto:m.niranjannaik@iitgn.ac.in" style="color: white;">m.niranjannaik@iitgn.ac.in</a></p>
             <ul>
-                <li><a href="#about">About Me and Updates</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#awards">Awards and Achievements</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about" class="menu-item">About Me and Updates</a></li>
+                <li><a href="#experience" class="menu-item">Experience</a></li>
+                <li><a href="#education" class="menu-item">Education</a></li>
+                <li><a href="#publications" class="menu-item">Publications</a></li>
+                <li><a href="#awards" class="menu-item">Awards and Achievements</a></li>
+                <li><a href="#gallery" class="menu-item">Gallery</a></li>
             </ul>
         </div>
     </div>
@@ -117,7 +117,7 @@
         <h1>Welcome to Niranjan's Website</h1>
         <p>This site is all about my research on forest fires and climate change in India.</p>
 
-        <!-- Display all details at once -->
+        <!-- Display all details -->
         <section id="about">
             <h2>About Me and Updates</h2>
             <p>I mainly use an interdisciplinary approach to solve research snags. My current research interest includes coupling machine learning algorithms with satellite imagery to exploit satellite observations (soil moisture, surface roughness, river discharge, and groundwater level). I am also interested in developing novel algorithms in the field of evolutionary computation (e.g., ECS-NL, SHS) and machine learning (e.g., PCA-MM-SVR, LT-FS-ID, AutoML-GWL, F-TLBO-ID).</p>
@@ -155,5 +155,28 @@
             <p>Images and media related to my research and events will go here.</p>
         </section>
     </div>
+
+    <script>
+        // Function to highlight menu item based on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('#content section');
+            const menuItems = document.querySelectorAll('#sidebar-content ul li a');
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 50; // Add some offset for better accuracy
+                if (window.scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').substring(1) === currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
