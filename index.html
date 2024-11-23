@@ -80,12 +80,12 @@
             margin-left: 371px; /* Adjusted for the sidebar width */
             padding: 20px;
             width: calc(100% - 371px);
-            height: 100vh; /* Ensure the content section covers the full height */
+            height: auto; /* Don't stretch the height */
             overflow-y: auto;
             background-image: url('River2.jpg'); /* Path to your image */
-            background-size: cover; /* Ensure the image covers the full content area */
-            background-position: center; /* Center the image */
-            background-attachment: fixed; /* Ensure the image stays fixed while scrolling */
+            background-size: 100% auto; /* Fit the image to full width without stretching the height */
+            background-position: center; /* Center the image horizontally */
+            background-repeat: no-repeat; /* Prevent image repetition */
         }
 
         /* Text overlay with background color for readability */
