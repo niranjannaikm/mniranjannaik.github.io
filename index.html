@@ -15,8 +15,8 @@
 
         /* Left sidebar styling */
         #sidebar {
-            width: 600px; /* Reduced sidebar width */
-            background-color: #007BFF;
+            width: 328px; /* Increased sidebar width */
+            background: linear-gradient(to bottom, black, white); /* Gradient from black to white */
             color: white;
             height: 100vh;
             position: fixed;
@@ -40,6 +40,7 @@
         #sidebar-content h2, #sidebar-content p {
             margin: 10px 0;
             text-align: center;
+            color: black; /* Text in the sidebar is black */
         }
 
         #sidebar-content ul {
@@ -54,7 +55,7 @@
         }
 
         #sidebar-content ul li a {
-            color: white;
+            color: black; /* Sidebar menu items in black */
             text-decoration: none;
             font-size: 18px;
             padding: 5px 10px;
@@ -73,10 +74,11 @@
 
         /* Main content area */
         #content {
-            margin-left: 324px; /* Adjusted for reduced sidebar width */
+            margin-left: 348px; /* Adjusted for increased sidebar width */
             padding: 20px;
-            width: calc(100% - 324px);
+            width: calc(100% - 348px);
             overflow-y: auto;
+            color: gray; /* Right-side text descriptions in gray */
         }
 
         #content h1 {
@@ -91,7 +93,7 @@
 
         #content section h2 {
             margin-bottom: 10px;
-            color: #333;
+            color: black; /* Section headings in black */
         }
 
         /* Grey line at the bottom of each section */
@@ -111,7 +113,7 @@
             <img src="profile.jpg" alt="Niranjan's Profile Picture"> <!-- Add your profile image path -->
             <h2>M Niranjannaik</h2>
             <p>Researcher | IIT Gandhinagar</p>
-            <p>Email: <a href="mailto:m.niranjannaik@iitgn.ac.in" style="color: white;">m.niranjannaik@iitgn.ac.in</a></p>
+            <p>Email: <a href="mailto:m.niranjannaik@iitgn.ac.in" style="color: black;">m.niranjannaik@iitgn.ac.in</a></p>
             <ul>
                 <li><a href="#about" class="menu-item">About Me and Updates</a></li>
                 <li><a href="#experience" class="menu-item">Experience</a></li>
